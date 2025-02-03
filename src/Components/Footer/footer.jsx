@@ -65,9 +65,9 @@ const Footer = () => {
           {/* Copyright and Contact */}
           <p className="text-gray-500 my-6">
             Copyright &copy; 2025 lifebenefitsplus.com | All rights reserved. |{" "}
-            <a href="#" className="text-[#0089C8] underline">
+            <Link to={"/contact"} className="text-[#0089C8] underline">
               Contact Us
-            </a>
+            </Link>
           </p>
 
           {/* Additional Note */}
