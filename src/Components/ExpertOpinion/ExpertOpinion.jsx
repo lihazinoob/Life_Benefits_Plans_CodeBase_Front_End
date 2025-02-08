@@ -24,18 +24,20 @@ const ExpertOpinion = () => {
 
         {/* Call Button */}
         <div className="mt-8 items-center text-center">
-          <button className="bg-[#27B5CE] text-white py-2 px-6 rounded-lg text-lg gap-2 shadow-md  transition">
-            <div className="flex flex-row items-center justify-center gap-4 p-2">
-              <img
-                decoding="async"
-                alt="Ringing phone icon loading="
-                src="https://a-us.storyblok.com/f/1016477/33x37/8591b07629/white-phone-icon-33.gif"
-                width="33px"
-                height="33px"
-              ></img>
-              <span>(877) 841-0987</span>
-            </div>
-          </button>
+          <a href="tel:8778410987">
+            <button className="bg-[#27B5CE] text-white py-2 px-6 rounded-lg text-lg gap-2 shadow-md  transition">
+              <div className="flex flex-row items-center justify-center gap-4 p-2">
+                <img
+                  decoding="async"
+                  alt="Ringing phone icon loading="
+                  src="https://a-us.storyblok.com/f/1016477/33x37/8591b07629/white-phone-icon-33.gif"
+                  width="33px"
+                  height="33px"
+                ></img>
+                (877) 841-0987
+              </div>
+            </button>
+          </a>
           <div className="flex flex-row items-center justify-center mt-6 gap-2">
             <img
               loading="lazy"
