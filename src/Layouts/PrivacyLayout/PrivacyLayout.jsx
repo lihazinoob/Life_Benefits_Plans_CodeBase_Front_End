@@ -6,13 +6,13 @@ const PrivacyLayout = () => {
   return (
     <div>
       <div className="font-Montserrat">
-        <div className="lg:px-24  py-1">
+        <div className="lg:px-24 2xl:px-96 py-1">
           <Header />
         </div>
-        <div className="lg:px-24 pt-8">
+        <div className="lg:px-24 2xl:px-96 pt-8">
           <PrivacyPolicy/>
         </div>
-        <div className="lg:px-24 py-1">
+        <div className="lg:px-24 2xl:px-96 py-1">
           <Footer />
         </div>
       </div>
