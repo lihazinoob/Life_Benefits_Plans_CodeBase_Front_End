@@ -1,14 +1,14 @@
 import React from "react";
-
+import image from "../../assets/image.png"
 const ExpertOpinion = () => {
   return (
     <div className="w-full mt-16 py-6 px-4 md:px-8 bg-[#F6F8F7] rounded-lg flex flex-col md:flex-row items-center md:items-start gap-6">
       {/* Image Section */}
-      <div className="w-32 md:w-48 flex-shrink-0">
+      <div className="w-48 h-48 md:w-64 md:h-64 flex-shrink-0">
         <img
-          src="/path-to-your-image.jpg"
+          src={image}
           alt="Expert Support"
-          className="w-full rounded-lg object-cover hidden md:block"
+          className="w-full h-full rounded-lg object-cover hidden md:block"
         />
       </div>
 
