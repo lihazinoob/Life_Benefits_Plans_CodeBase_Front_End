@@ -26,7 +26,7 @@ const StateCard = () => {
       </div>
 
       {/* Grid Layout for Buttons */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-0.5 gap-y-2 my-12 text-center mx-auto ml-32 max-w-screen-lg">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-0.5 gap-y-2 my-12 text-center mx-auto ml-[120px] max-w-screen-lg">
         {US_STATES.map(({ name }) => (
           <div className="rounded border-2 border-solid text-center w-3/4 bg-inherit hover:bg-[#4970FA] text-black hover:text-white transition duration-200 text-xs cursor-pointer">
             <button
