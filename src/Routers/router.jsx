@@ -4,6 +4,7 @@ import FunctionalPage from "../Layouts/FunctionalPage/FunctionalPage";
 import TermsOfUse from "../Layouts/TermsOfUse/TermsOfUse";
 import ContactUs from "../Layouts/ContactUs/ContactUs";
 import UserFormPage from "../Layouts/UserFormPage/UserFormPage";
+import PrivacyLayout from "../Layouts/PrivacyLayout/PrivacyLayout";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
    {
     path:"/terms-of-use",
     element:<TermsOfUse/>
+   },
+   {
+    path:"/privacy",
+    element:<PrivacyLayout/>
    },
    {
     path:"/contact",

@@ -1,12 +1,13 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div className="w-full px-2 md:px-4 lg:px-8">
       <header className="flex justify-between items-center py-3 md:py-2 max-w-7xl mx-auto gap-0.5">
         {/* Left Section: Logo */}
         <div className="lg:text-2xl sm:text-xl text-sm  font-bold text-[#0089C8] flex items-center gap-1 md:gap-2">
-          Life Benefits Plus
+          <Link to="/">Life Benefits Plus</Link>
+          
         </div>
 
         {/* Right Section: Contact Info */}
