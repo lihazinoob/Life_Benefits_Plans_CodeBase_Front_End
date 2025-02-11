@@ -7,7 +7,7 @@ const Footer = () => {
       <div className=" mx-auto flex flex-col  ">
         {/* Logo Section */}
         <div className="flex flex-row items-center justify-between gap-2 mb-4">
-          <span className="sm:text-lg text-sm  font-bold text-[#0089C8] cursor-pointer">
+          <span className="sm:text-lg text-sm  font-bold text-[#4970FA] cursor-pointer">
             LifeBenefitsPlus.com
           </span>
           <img
@@ -30,7 +30,7 @@ const Footer = () => {
             please call{" "}
             <a
               href="tel:8778410987"
-              className="text-[#0089C8] underline cursor-pointer"
+              className="text-[#4970FA] underline cursor-pointer"
             >
               (877) 841-0987
             </a>
@@ -43,11 +43,11 @@ const Footer = () => {
             Life Insurance Pros is not affiliated with or endorsed by the United
             States government or the federal Medicare program. By using this
             site, you acknowledge that you have read and agree to the{" "}
-            <Link to="/terms-of-use" className="text-[#0089C8] underline">
+            <Link to="/terms-of-use" className="text-[#4970FA] underline">
               Terms of Service
             </Link>{" "}
             and{" "}
-            <Link to="/privacy" className="text-[#0089C8] underline">
+            <Link to="/privacy" className="text-[#4970FA] underline">
               Privacy Policy
             </Link>
             .
@@ -56,7 +56,7 @@ const Footer = () => {
           <p className="text-gray-600 mb-4">
             We are committed to protecting your privacy. If you do not want to
             share your information, click on{" "}
-            <a href="#" className="text-[#0089C8] underline">
+            <a href="#" className="text-[#4970FA] underline">
                Do Not Sell My Personal Information
             </a>
             .
@@ -65,7 +65,7 @@ const Footer = () => {
           {/* Copyright and Contact */}
           <p className="text-gray-500 my-6">
             Copyright &copy; 2025 lifebenefitsplus.com | All rights reserved. |{" "}
-            <Link to={"/contact"} className="text-[#0089C8] underline">
+            <Link to={"/contact"} className="text-[#4970FA] underline">
               Contact Us
             </Link>
           </p>

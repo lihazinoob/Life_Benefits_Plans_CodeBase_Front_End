@@ -10,9 +10,13 @@ const MultiStepForm = () => {
     year: "",
     coverage: "",
     gender: "",
-    zipCode: "",
+    zipCode:
+      location.state?.selectedZIP || localStorage.getItem("selectedZIP") || "",
     address: "",
-    city: "",
+    city:
+      location.state?.selectedCity ||
+      localStorage.getItem("selectedCity") ||
+      "",
     state:
       location.state?.selectedState ||
       localStorage.getItem("selectedState") ||
@@ -118,8 +122,8 @@ const MultiStepForm = () => {
         newErrors.year = "Required";
       }
 
-      if (formData.year && (formData.year < 1900 || formData.year > 2000)) {
-        newErrors.year = "Year must be between 1900 and 2000";
+      if (formData.year && (formData.year < 1900 || formData.year > 2005)) {
+        newErrors.year = "Year must be between 1900 and 2005";
       }
     } else if (step === 2) {
       if (!formData.coverage) newErrors.coverage = "Required";
@@ -166,7 +170,7 @@ const MultiStepForm = () => {
         </div>
         <div className="w-full h-2 bg-gray-200 rounded-full">
           <div
-            className="h-2 bg-teal-500 rounded-full transition-all"
+            className="h-2 bg-[#4970FA] rounded-full transition-all"
             style={{ width: `${((step - 1) / 4) * 100}%` }}
           ></div>
         </div>
@@ -197,7 +201,7 @@ const MultiStepForm = () => {
                   className={`border ${
                     errors.month ? "border-red-500" : "border-gray-300"
                   } rounded-md text-center text-xl p-3 w-24 focus:outline-none focus:ring-2 ${
-                    errors.month ? "focus:ring-red-500" : "focus:ring-teal-500"
+                    errors.month ? "focus:ring-red-500" : "focus:ring-[#4970FA]"
                   }`}
                 />
                 {errors.month && (
@@ -222,7 +226,7 @@ const MultiStepForm = () => {
                   className={`border ${
                     errors.day ? "border-red-500" : "border-gray-300"
                   } rounded-md text-center text-xl p-3 w-24 focus:outline-none focus:ring-2 ${
-                    errors.day ? "focus:ring-red-500" : "focus:ring-teal-500"
+                    errors.day ? "focus:ring-red-500" : "focus:ring-[#4970FA]"
                   }`}
                 />
                 {errors.day && (
@@ -231,7 +235,9 @@ const MultiStepForm = () => {
               </div>
 
               {/* Year */}
-              <div className="flex flex-col">
+              <div className="flex flex-col items-center w-28">
+                {" "}
+                {/* Ensures alignment */}
                 <label className="text-lg">Year</label>
                 <input
                   type="text"
@@ -244,14 +250,16 @@ const MultiStepForm = () => {
                   }}
                   placeholder="YYYY"
                   maxLength="4"
-                  className={`border ${
-                    errors.year ? "border-red-500" : "border-gray-300"
-                  } rounded-md text-center text-xl p-3 w-28 focus:outline-none focus:ring-2 ${
-                    errors.year ? "focus:ring-red-500" : "focus:ring-teal-500"
+                  className={`border w-full text-center text-xl p-3 rounded-md focus:outline-none focus:ring-2 ${
+                    errors.year
+                      ? "border-red-500 focus:ring-red-500"
+                      : "border-gray-300 focus:ring-[#4970FA]"
                   }`}
                 />
                 {errors.year && (
-                  <p className="text-red-500 text-sm mt-1">{errors.year}</p>
+                  <p className="text-red-500 text-sm mt-1 w-full text-center">
+                    {errors.year}
+                  </p>
                 )}
               </div>
             </div>
@@ -259,7 +267,7 @@ const MultiStepForm = () => {
             <div className="flex justify-center mt-6">
               <button
                 onClick={handleNext}
-                className="px-6 py-3 text-lg font-semibold bg-teal-500 text-white rounded-md hover:bg-teal-600"
+                className="px-6 py-3 text-lg font-semibold bg-[#4970FA] text-white rounded-md hover:bg-blue-600"
               >
                 Next
               </button>
@@ -287,8 +295,8 @@ const MultiStepForm = () => {
                   onClick={() => handleChange("coverage", amount)}
                   className={`p-4 border-2 rounded-md text-lg font-semibold transition-all ${
                     formData.coverage === amount
-                      ? "border-blue-500 bg-blue-100"
-                      : "border-gray-300 bg-white hover:border-blue-400"
+                      ? "border-[#4970FA] bg-blue-100"
+                      : "border-gray-300 bg-white hover:border-[#4970FA]"
                   }`}
                 >
                   {amount}
@@ -311,7 +319,7 @@ const MultiStepForm = () => {
                 onClick={() => handleChange("gender", "Male")}
                 className={`px-6 py-3 border rounded-md ${
                   formData.gender === "Male"
-                    ? "bg-teal-500 text-white"
+                    ? "bg-[#4970FA] text-white"
                     : "bg-gray-100"
                 }`}
               >
@@ -321,7 +329,7 @@ const MultiStepForm = () => {
                 onClick={() => handleChange("gender", "Female")}
                 className={`px-6 py-3 border rounded-md ${
                   formData.gender === "Female"
-                    ? "bg-teal-500 text-white"
+                    ? "bg-[#4970FA] text-white"
                     : "bg-gray-100"
                 }`}
               >
@@ -354,7 +362,7 @@ const MultiStepForm = () => {
                 className={`border ${
                   errors.address ? "border-red-500" : "border-gray-300"
                 } rounded-md text-center text-xl p-2 w-full focus:outline-none focus:ring-2 ${
-                  errors.address ? "focus:ring-red-500" : "focus:ring-teal-500"
+                  errors.address ? "focus:ring-red-500" : "focus:ring-[#4970FA]"
                 }`}
               />
               {errors.address && (
@@ -370,7 +378,7 @@ const MultiStepForm = () => {
                 className={`border ${
                   errors.city ? "border-red-500" : "border-gray-300"
                 } rounded-md text-center text-xl p-2 w-full focus:outline-none focus:ring-2 ${
-                  errors.city ? "focus:ring-red-500" : "focus:ring-teal-500"
+                  errors.city ? "focus:ring-red-500" : "focus:ring-[#4970FA]"
                 }`}
               />
               {errors.city && (
@@ -386,7 +394,7 @@ const MultiStepForm = () => {
                   className={`border ${
                     errors.state ? "border-red-500" : "border-gray-300"
                   } rounded-md text-center text-xl p-2 w-full focus:outline-none focus:ring-2 ${
-                    errors.state ? "focus:ring-red-500" : "focus:ring-teal-500"
+                    errors.state ? "focus:ring-red-500" : "focus:ring-[#4970FA]"
                   }`}
                 >
                   <option value={formData.state}>
@@ -414,7 +422,7 @@ const MultiStepForm = () => {
                   } rounded-md text-center text-xl p-2 w-full focus:outline-none focus:ring-2 ${
                     errors.zipCode
                       ? "focus:ring-red-500"
-                      : "focus:ring-teal-500"
+                      : "focus:ring-[#4970FA]"
                   }`}
                 />
                 {errors.zipCode && (
@@ -430,7 +438,7 @@ const MultiStepForm = () => {
           {step > 1 && (
             <button
               onClick={handlePrevious}
-              className="px-4 py-2 text-lg border rounded-md text-teal-500 hover:bg-teal-100"
+              className="px-4 py-2 text-lg border rounded-md text-[#4970FA] "
             >
               Back
             </button>
@@ -440,7 +448,7 @@ const MultiStepForm = () => {
             step > 1 ? (
               <button
                 onClick={handleNext}
-                className="px-6 py-3 text-lg font-semibold bg-teal-500 text-white rounded-md hover:bg-teal-600"
+                className="px-6 py-3 text-lg font-semibold bg-[#4970FA] text-white rounded-md hover:bg-blue-600"
               >
                 Next
               </button>
@@ -450,7 +458,7 @@ const MultiStepForm = () => {
           ) : (
             <button
               onClick={handleSubmit}
-              className="px-6 py-3 text-lg font-semibold bg-teal-500 text-white rounded-md hover:bg-teal-600"
+              className="px-6 py-3 text-lg font-semibold bg-[#4970FA] text-white rounded-md hover:bg-blue-600"
             >
               Submit
             </button>

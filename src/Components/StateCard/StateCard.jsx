@@ -28,11 +28,11 @@ const StateCard = () => {
       </div>
 
       {/* Grid Layout for Buttons */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 my-12 px-4 text-center">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-2 my-12 mx-16 ">
         {US_STATES.map(({ name }) => (
           <button
             key={name}
-            className="bg-inherit hover:bg-[#27B5CE] text-black hover:text-white font-semibold py-4 px-2 rounded border-2 border-solid transition duration-200"
+            className="bg-inherit hover:bg-[#4970FA] text-black hover:text-white font-semibold py-4   rounded border-2 border-solid transition duration-200 text-xs "
             onClick={() => handleStateClick(name)}
           >
             {name}

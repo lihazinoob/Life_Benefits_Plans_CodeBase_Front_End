@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const LandingCard = () => {
   return (
     <div className="w-full mt-16 py-6 px-4 md:px-8">
@@ -15,9 +15,10 @@ const LandingCard = () => {
               TO ENROLL
             </span>
           </p>
-          <button className="bg-[#27B5CE] text-white py-4 px-4 rounded-md mt-4 ">
+
+          <Link to='/form' className="bg-[#4970FA] text-white py-4 px-4 rounded-md mt-4 ">
             START MY QUOTE
-          </button>
+          </Link>
         </div>
 
         {/* Second Card */}
@@ -26,13 +27,13 @@ const LandingCard = () => {
             Or give us a call
           </h2>
           <p className="text-sm text-gray-600 mt-6 mb-2 text-center">
-            <span className="text-blue-600 font-semibold text-xl">
+            <span className="text-[#4970FA] font-semibold text-xl">
               THE EASIER, FASTER
             </span>{" "}
             WAY TO GET QUOTES
           </p>
           <a href="tel:8778410987">
-            <button className="bg-[#27B5CE] text-white  px-2 rounded-lg text-lg gap-2 shadow-md  transition">
+            <button className="bg-[#4970FA] text-white  px-2 rounded-lg text-lg gap-2 shadow-md  transition">
               <div className="flex flex-row items-center justify-center gap-4 p-2">
                 <img
                   decoding="async"

@@ -5,11 +5,15 @@ import StateCard from "../../Components/StateCard/StateCard";
 import ExpertOpinion from "../../Components/ExpertOpinion/ExpertOpinion";
 import FAQ from "../../Components/Faqs/Faqs";
 import LandingCard from "../../Components/LandingCard/LandingCard";
+import Option from "../../Components/Options/Option";
 const LandingPage = () => {
   return (
     <div className="font-Montserrat">
       <div className="lg:px-24  py-1">
         <Header />
+      </div>
+      <div className="lg:px-24 py-1">
+        <Option />
       </div>
       <div className="lg:px-24 py-1">
         <StateCard />
