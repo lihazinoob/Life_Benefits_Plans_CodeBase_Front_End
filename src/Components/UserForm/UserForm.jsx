@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const MultiStepForm = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     month: "",
@@ -175,7 +176,7 @@ const MultiStepForm = () => {
 
   const handleSubmit = () => {
     if (validateStep()) {
-      alert("Form submitted successfully! 🎉");
+      navigate("/congratulations");
     }
   };
 
