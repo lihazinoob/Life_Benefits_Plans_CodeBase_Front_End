@@ -130,8 +130,27 @@ const ContactForm = () => {
             <input
               ref={phoneRef}
               type="tel"
+              onChange={(e) => {
+                let rawValue = e.target.value.replace(/\D/g, ""); // Remove non-digits
+                let formattedValue = "";
+
+                if (rawValue.length > 0) {
+                  formattedValue = `(${rawValue.substring(0, 3)}`;
+                }
+                if (rawValue.length >= 4) {
+                  formattedValue += `) ${rawValue.substring(3, 6)}`;
+                }
+                if (rawValue.length >= 7) {
+                  formattedValue += `-${rawValue.substring(6, 10)}`;
+                }
+
+                e.target.value = formattedValue; // Directly modify input value
+              }}
+              placeholder="(123) 456-7890"
+              maxLength="14" // Limit input to formatted phone number length
               className="w-full border p-2 rounded transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             />
+
             {errors.phone && (
               <p className="text-[#c02b0a] text-sm">{errors.phone}</p>
             )}
