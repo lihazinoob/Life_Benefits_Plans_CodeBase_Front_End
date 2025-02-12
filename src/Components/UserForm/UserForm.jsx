@@ -85,23 +85,41 @@ const MultiStepForm = () => {
     setErrors({ ...errors, [field]: "" }); // Clear errors when user types
   };
 
+  // const handleZipChange = async (zip) => {
+  //   setFormData({ ...formData, zipCode: zip });
+  //   if (zip.length === 5) {
+  //     // Valid ZIP length for the US
+  //     try {
+  //       const response = await fetch(`https://api.zippopotam.us/us/${zip}`);
+  //       if (!response.ok) throw new Error("Invalid ZIP Code");
+
+  //       const data = await response.json();
+  //       const newCity = data.places?.[0]?.["place name"];
+  //       const newState = data.places?.[0]?.["state"];
+
+  //       setFormData({
+  //         ...formData,
+  //         city: newCity || "",
+  //         state: newState || selectedState,
+  //       });
+  //     } catch (error) {
+  //       console.error("ZIP Code lookup failed:", error);
+  //     }
+  //   }
+  // };
+
   const handleZipChange = async (zip) => {
-    setFormData({ ...formData, zipCode: zip });
+    setFormData((prev) => ({ ...prev, zipCode: zip }));
     if (zip.length === 5) {
-      // Valid ZIP length for the US
       try {
         const response = await fetch(`https://api.zippopotam.us/us/${zip}`);
         if (!response.ok) throw new Error("Invalid ZIP Code");
-
         const data = await response.json();
-        const newCity = data.places?.[0]?.["place name"];
-        const newState = data.places?.[0]?.["state"];
-
-        setFormData({
-          ...formData,
-          city: newCity || "",
-          state: newState || selectedState,
-        });
+        setFormData((prev) => ({
+          ...prev,
+          city: data.places?.[0]?.["place name"] || prev.city,
+          state: data.places?.[0]?.["state"] || prev.state,
+        }));
       } catch (error) {
         console.error("ZIP Code lookup failed:", error);
       }
@@ -414,7 +432,10 @@ const MultiStepForm = () => {
                 <input
                   type="text"
                   value={formData.zipCode}
-                  onChange={(e) => handleZipChange(e.target.value)}
+                  onChange={(e) => {
+                    // onChange={(e) => setZip(e.target.value.replace(/\D/, ""))} // Remove non-digits
+                    const value = e.target.value.replace(/\D/g, "");
+                  handleZipChange(value)}}
                   placeholder="ZIP Code"
                   maxLength="5"
                   className={`border ${
