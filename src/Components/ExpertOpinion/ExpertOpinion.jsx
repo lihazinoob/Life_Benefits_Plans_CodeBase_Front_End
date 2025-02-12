@@ -2,9 +2,9 @@ import React from "react";
 import image from "../../assets/image.png"
 const ExpertOpinion = () => {
   return (
-    <div className="w-full mt-16 py-6 px-4 md:px-8 bg-[#F6F8F7] rounded-lg flex flex-col md:flex-row items-center md:items-start gap-6">
+    <div className="w-full mt-16 pt-6 px-4 md:px-8 bg-[#F6F8F7] rounded-lg flex flex-col md:flex-row items-center md:items-start gap-16">
       {/* Image Section */}
-      <div className="w-48 h-48 md:w-64 md:h-64 flex-shrink-0">
+      <div className="w-48 h-48 md:w-72 md:h-72 flex-shrink-0">
         <img
           src={image}
           alt="Expert Support"
@@ -13,12 +13,12 @@ const ExpertOpinion = () => {
       </div>
 
       {/* Text and Call Section */}
-      <div className="text-center md:text-left flex-1">
+      <div className="text-center flex-1">
         <h2 className="text-4xl font-semibold text-gray-900 text-center  tracking-wide">
           Prefer to speak with an expert?
         </h2>
         <p className="text-gray-600 mt-4 text-center text-xl">
-          Speak with a licensed agent and get expert advice on choosing a plan
+          Speak with a licensed agent and get expert advice<br/> on choosing a plan
           that’s right for you.
         </p>
 
