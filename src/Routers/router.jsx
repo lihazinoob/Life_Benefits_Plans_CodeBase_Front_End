@@ -5,6 +5,7 @@ import TermsOfUse from "../Layouts/TermsOfUse/TermsOfUse";
 import ContactUs from "../Layouts/ContactUs/ContactUs";
 import UserFormPage from "../Layouts/UserFormPage/UserFormPage";
 import PrivacyLayout from "../Layouts/PrivacyLayout/PrivacyLayout";
+import CongoLayout from "../Layouts/CongoLayout/CongoLayout";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
    {
     path:"/form",
     element:<UserFormPage/>
+   },
+   {
+    path:"/congratulations",
+    element:<CongoLayout/>
    }
 
 ]);
