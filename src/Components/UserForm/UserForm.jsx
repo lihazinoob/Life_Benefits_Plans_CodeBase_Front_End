@@ -683,7 +683,7 @@ const MultiStepForm = () => {
     if (navigationDirection === "forward" && step < 4 && isCurrentStepValid()) {
       const timer = setTimeout(() => {
         setStep((prev) => prev + 1);
-      }, 1500); // Delay for forward navigation
+      }, 800); // Delay for forward navigation
       return () => clearTimeout(timer);
     }
 

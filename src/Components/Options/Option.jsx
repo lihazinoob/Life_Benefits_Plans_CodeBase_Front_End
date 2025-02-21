@@ -88,7 +88,7 @@ const Option = () => {
 
   const handleSubmit = () => {
     if (!isValid || !country || !city || !stateval) {
-      setErrorMessage("Please enter a valid ZIP code before proceeding.");
+      setErrorMessage("Invalid ZIP");
       return;
     }
 
