@@ -13,10 +13,10 @@ const UserFormPage = () => {
         <MultiStepForm />
       </div>
 
-      <div className="lg:px-24 2xl:px-96 py-1">
+      <div className="lg:px-24 2xl:px-96">
         <Footer />
       </div>
-      <div className="lg:px-24 2xl:px-96 py-1"></div>
+      
     </div>
   );
 };
