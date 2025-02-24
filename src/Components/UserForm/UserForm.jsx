@@ -492,10 +492,13 @@
 // };
 
 // export default MultiStepForm;
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const MultiStepForm = () => {
+  const monthRef = useRef(null);
+  const dayRef = useRef(null);
+  const yearRef = useRef(null);
   const location = useLocation();
   const navigate = useNavigate();
   const [step, setStep] = useState(1);
@@ -506,9 +509,7 @@ const MultiStepForm = () => {
     coverage: "",
     gender: "",
     zipCode:
-      location.state?.selectedZIP ||
-      localStorage.getItem("selectedZIP") ||
-      "",
+      location.state?.selectedZIP || localStorage.getItem("selectedZIP") || "",
     address: "",
     city:
       location.state?.selectedCity ||
@@ -521,7 +522,7 @@ const MultiStepForm = () => {
   });
   const [errors, setErrors] = useState({});
   const [statesList, setStatesList] = useState([]);
-  const [navigationDirection,setNavigationDirection] = useState("forward");
+  const [navigationDirection, setNavigationDirection] = useState("forward");
 
   useEffect(() => {
     const states = [
@@ -582,6 +583,16 @@ const MultiStepForm = () => {
   const handleChange = (field, value) => {
     setFormData({ ...formData, [field]: value });
     setErrors({ ...errors, [field]: "" }); // Clear errors when user types
+    if (field === "month" && value.length === 2 && value >= 1 && value <= 12) {
+      dayRef.current.focus();
+    } else if (
+      field === "day" &&
+      value.length === 2 &&
+      value >= 1 &&
+      value <= 31
+    ) {
+      yearRef.current.focus();
+    }
   };
 
   // ZIP Code lookup (remains unchanged)
@@ -691,7 +702,6 @@ const MultiStepForm = () => {
     setNavigationDirection("forward");
   }, [formData, step, navigationDirection]);
 
-
   return (
     <div className="flex flex-col items-center mt-24 bg-white px-4">
       {/* Progress Bar */}
@@ -719,6 +729,7 @@ const MultiStepForm = () => {
               <div className="flex flex-col">
                 <label className="text-lg">Month</label>
                 <input
+                  ref={monthRef}
                   type="text"
                   value={formData.month}
                   onChange={(e) => {
@@ -744,6 +755,7 @@ const MultiStepForm = () => {
               <div className="flex flex-col">
                 <label className="text-lg">Day</label>
                 <input
+                  ref={dayRef}
                   type="text"
                   value={formData.day}
                   onChange={(e) => {
@@ -769,6 +781,7 @@ const MultiStepForm = () => {
               <div className="flex flex-col items-center w-28">
                 <label className="text-lg">Year</label>
                 <input
+                  ref={yearRef}
                   type="text"
                   value={formData.year}
                   onChange={(e) => {
@@ -812,7 +825,7 @@ const MultiStepForm = () => {
                 <button
                   key={amount}
                   onClick={() => handleChange("coverage", amount)}
-                  className={`p-4 border-2 rounded-md text-lg font-semibold transition-all ${
+                  className={`p-4 border-2 rounded-md text-[10px] md:text-lg font-semibold transition-all ${
                     formData.coverage === amount
                       ? "border-[#4970FA] bg-blue-100"
                       : "border-gray-300 bg-white hover:border-[#4970FA]"
@@ -878,9 +891,7 @@ const MultiStepForm = () => {
                 className={`border ${
                   errors.address ? "border-red-500" : "border-gray-300"
                 } rounded-md text-center text-xl p-2 w-full focus:outline-none focus:ring-2 ${
-                  errors.address
-                    ? "focus:ring-red-500"
-                    : "focus:ring-[#4970FA]"
+                  errors.address ? "focus:ring-red-500" : "focus:ring-[#4970FA]"
                 }`}
               />
               {errors.address && (

@@ -153,7 +153,7 @@ const Option = () => {
           </div>
 
           <button
-            className="bg-blue-600 text-white px-4 py-3 rounded-md text-lg hover:bg-blue-700 transition"
+            className="bg-blue-600 text-white md:px-4 md:py-3 py-1.5 px-1 rounded-md text-lg hover:bg-blue-700 transition"
             onClick={handleSubmit}
           >
             Start My Quote
