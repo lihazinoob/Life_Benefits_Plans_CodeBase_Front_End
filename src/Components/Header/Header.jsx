@@ -5,7 +5,7 @@ const Header = () => {
     <div className="w-full px-2 md:px-4 lg:px-8">
       <header className="flex justify-between items-center py-3 md:py-2 max-w-7xl mx-auto gap-0.5">
         {/* Left Section: Logo */}
-        <div className="lg:text-2xl sm:text-xl text-sm  font-bold text-[#4970FA] flex items-center gap-1 md:gap-2">
+        <div className="lg:text-2xl sm:text-xl text-[18px] px-4  font-bold text-[#4970FA] flex items-center gap-1 md:gap-2">
           <Link to="/">Life Benefits Plus</Link>
         </div>
 

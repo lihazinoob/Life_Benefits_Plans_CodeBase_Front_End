@@ -813,7 +813,7 @@ const MultiStepForm = () => {
             <h2 className="text-2xl font-bold text-gray-900">
               What's your desired coverage amount?
             </h2>
-            <div className="grid grid-cols-3 gap-4 mt-6">
+            <div className="grid md:grid-cols-3 grid-cols-2  gap-4 mt-6">
               {[
                 "$100,000",
                 "$200,000",
@@ -825,7 +825,7 @@ const MultiStepForm = () => {
                 <button
                   key={amount}
                   onClick={() => handleChange("coverage", amount)}
-                  className={`p-4 border-2 rounded-md text-[10px] md:text-lg font-semibold transition-all ${
+                  className={`p-4 border-2 rounded-md text-[20px] md:text-lg font-semibold transition-all ${
                     formData.coverage === amount
                       ? "border-[#4970FA] bg-blue-100"
                       : "border-gray-300 bg-white hover:border-[#4970FA]"
@@ -846,10 +846,10 @@ const MultiStepForm = () => {
             <h2 className="text-2xl font-bold text-gray-900">
               What is your gender?
             </h2>
-            <div className="flex gap-6 justify-center mt-5">
+            <div className="flex md:flex-row  flex-col gap-6 justify-center items-center mt-5">
               <button
                 onClick={() => handleChange("gender", "Male")}
-                className={`px-6 py-3 border rounded-md ${
+                className={`px-4 py-2 border border-[#4970FA] max-w-[20rem] rounded-md font-bold text-lg ${
                   formData.gender === "Male"
                     ? "bg-[#4970FA] text-white"
                     : "bg-gray-100"
@@ -859,7 +859,7 @@ const MultiStepForm = () => {
               </button>
               <button
                 onClick={() => handleChange("gender", "Female")}
-                className={`px-6 py-3 border rounded-md ${
+                className={`px-4 py-2 border border-[#4970FA] max-w-[8rem] rounded-md font-bold text-lg ${
                   formData.gender === "Female"
                     ? "bg-[#4970FA] text-white"
                     : "bg-gray-100"
@@ -895,7 +895,7 @@ const MultiStepForm = () => {
                 }`}
               />
               {errors.address && (
-                <p className="text-red-500 text-sm mt-1">{errors.address}</p>
+                <p className="text-red-500 text-sm -mt-1">{errors.address}</p>
               )}
 
               <input
