@@ -105,20 +105,20 @@ const Option = () => {
   return (
     <div className="w-full mt-16 py-6 px-4 md:px-8 bg-[#F6F8F7] rounded-lg">
       <div className="flex flex-col justify-center items-center">
-        <h1 className="text-4xl font-bold ">Life Insurance Options 2025</h1>
-        <div className="mt-4 font-semibold text-xl">
+        <h1 className="md:text-4xl font-bold text-md">Life Insurance Options 2025</h1>
+        <div className="mt-4 font-semibold md:text-xl">
           Quotes starting at <span className="text-[#4970FA] ">$15/month*</span>
         </div>
 
-        <div className="flex flex-row gap-4 mt-4 justify-center items-center">
+        <div className="flex md:flex-row flex-col gap-4 mt-4 justify-center items-center">
           <div className="flex flex-col items-center">
-            <div className="relative w-full max-w-xs">
+            <div className="relative w-full md:max-w-xs max-w-[9rem]">
               <input
                 type="text"
                 value={zip}
                 onChange={handleChange}
                 placeholder={isValid === false ? "" : "Enter ZIP code"}
-                className={`p-3 ${
+                className={`md:p-3 p-2 ${
                   isValid === false ? "pt-6" : "pt-3"
                 } rounded-md border-2 text-lg outline-none text-center w-full relative ${
                   isValid === null
@@ -141,11 +141,11 @@ const Option = () => {
 
               {/* Validation Icon */}
               {isValid !== null && (
-                <span className="absolute right-3 top-3">
+                <span className="absolute right-3 top-4">
                   {isValid ? (
-                    <CheckCircle className="text-green-500" size={24} />
+                    <CheckCircle className="text-green-500" size={20} />
                   ) : (
-                    <XCircle className="text-red-500" size={24} />
+                    <XCircle className="text-red-500" size={20} />
                   )}
                 </span>
               )}
@@ -153,7 +153,7 @@ const Option = () => {
           </div>
 
           <button
-            className="bg-blue-600 text-white md:px-4 md:py-3 py-1.5 px-1 rounded-md text-lg hover:bg-blue-700 transition"
+            className="bg-blue-600 text-white md:px-4 md:py-3 py-2 px-4 rounded-md text-lg hover:bg-blue-700 transition"
             onClick={handleSubmit}
           >
             Start My Quote
