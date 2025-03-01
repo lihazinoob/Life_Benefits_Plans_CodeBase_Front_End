@@ -2,13 +2,13 @@ import React from "react";
 import image from "../../assets/image.png"
 const ExpertOpinion = () => {
   return (
-    <div className="w-full mt-16 pt-6 px-4 md:px-8 bg-[#F6F8F7] rounded-lg flex flex-col md:flex-row items-center md:items-start gap-16">
+    <div className="w-full py-4 md:py-0 mt-16 md:pt-6 px-4 md:px-8 bg-[#F6F8F7] rounded-lg flex flex-col md:flex-row items-center md:items-start gap-16">
       {/* Image Section */}
-      <div className="w-48 h-48 md:w-72 md:h-72 flex-shrink-0">
+      <div className="w-48 h-48 md:w-72 md:h-72 flex-shrink-0 hidden md:block">
         <img
           src={image}
           alt="Expert Support"
-          className="w-full h-full rounded-lg object-cover hidden md:block"
+          className="w-full h-full rounded-lg object-cover "
         />
       </div>
 

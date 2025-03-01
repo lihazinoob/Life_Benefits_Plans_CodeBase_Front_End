@@ -103,7 +103,7 @@ const Option = () => {
   };
 
   return (
-    <div className="w-full mt-16 py-6 px-4 md:px-8 bg-[#F6F8F7] rounded-lg">
+    <div className="mt-16 py-6 px-4 md:px-8 bg-[#F6F8F7] rounded-lg mx-2">
       <div className="flex flex-col justify-center items-center">
         <h1 className="md:text-4xl font-bold text-md">Life Insurance Options 2025</h1>
         <div className="mt-4 font-semibold md:text-xl">
@@ -153,7 +153,7 @@ const Option = () => {
           </div>
 
           <button
-            className="bg-blue-600 text-white md:px-4 md:py-3 py-2 px-4 rounded-md text-lg hover:bg-blue-700 transition"
+            className="bg-blue-600 text-white md:px-4 md:py-3 py-4 px-6 rounded-md md:text-lg text-xl hover:bg-blue-700 transition"
             onClick={handleSubmit}
           >
             Start My Quote
