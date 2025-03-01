@@ -724,7 +724,7 @@ const MultiStepForm = () => {
             <h2 className="text-2xl font-bold text-gray-900">
               What's your date of birth?
             </h2>
-            <div className="flex gap-10 justify-center mt-5">
+            <div className="flex md:gap-10 gap-2  justify-center mt-5">
               {/* Month */}
               <div className="flex flex-col">
                 <label className="text-lg">Month</label>
