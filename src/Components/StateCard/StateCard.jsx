@@ -35,7 +35,7 @@ const StateCard = () => {
       <div className="block sm:hidden my-8 mx-auto  bg-[url('https://a-us.storyblok.com/f/1016477/350x210/bb37a90934/usa-map.webp')] bg-cover bg-center bg-no-repeat py-16">
         <select
           onChange={handleSelectChange}
-          className="w-[210px] max-w-xs mx-auto block px-4 py-3 rounded border-2 border-solid text-inherit font-semibold text-black bg-white focus:outline-none focus:border-[#4970FA]"
+          className="w-[210px] max-w-xs mx-auto block px-4 py-4 rounded border-2 border-solid text-inherit font-semibold text-black bg-white focus:outline-none focus:border-[#4970FA]"
           defaultValue=""
         >
           <option value="" disabled className="text-center">
