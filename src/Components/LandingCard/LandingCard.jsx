@@ -16,7 +16,8 @@ const LandingCard = () => {
             </span>
           </p>
 
-          <Link to='/form' className="bg-[#4970FA] text-white py-4 px-4 rounded-md mt-4 ">
+          <Link to='/form' className="bg-[#4970FA] text-white py-4 px-4 rounded-md mt-4 "
+            onClick={()=> window.scrollTo(0,0)}>
             START MY QUOTE
           </Link>
         </div>
@@ -32,7 +33,7 @@ const LandingCard = () => {
             </span>{" "}
             WAY TO GET QUOTES
           </p>
-          <a href="tel:8778410987">
+          <a href="tel:8337150369">
             <button className="bg-[#4970FA] text-white  px-2 rounded-lg text-lg gap-2 shadow-md  transition">
               <div className="flex flex-row items-center justify-center gap-4 p-2">
                 <img
@@ -42,7 +43,7 @@ const LandingCard = () => {
                   width="33px"
                   height="33px"
                 ></img>
-                (877) 841-0987
+                (833)-715-0369
               </div>
             </button>
           </a>
