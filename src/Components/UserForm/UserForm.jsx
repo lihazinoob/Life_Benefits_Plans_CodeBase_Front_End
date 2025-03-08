@@ -623,8 +623,8 @@ const MultiStepForm = () => {
       if (!formData.day) newErrors.day = "Required";
       if (!formData.year) newErrors.year = "Required";
 
-      if (formData.year && (formData.year < 1900 || formData.year > 2005)) {
-        newErrors.year = "Year must be between 1900 and 2005";
+      if (formData.year && (formData.year < 1900 || formData.year > 2025)) {
+        newErrors.year = "Year must be between 1900 and 2025";
       }
     } else if (step === 2) {
       if (!formData.coverage) newErrors.coverage = "Required";
@@ -652,7 +652,7 @@ const MultiStepForm = () => {
         formData.day.trim() !== "" &&
         formData.year.trim() !== "" &&
         parseInt(formData.year, 10) >= 1900 &&
-        parseInt(formData.year, 10) <= 2005
+        parseInt(formData.year, 10) <= 2025
       );
     } else if (step === 2) {
       return formData.coverage.trim() !== "";
@@ -815,12 +815,12 @@ const MultiStepForm = () => {
             </h2>
             <div className="grid md:grid-cols-3 grid-cols-2  gap-4 mt-6">
               {[
-                "$100,000",
-                "$200,000",
-                "$300,000",
-                "$400,000",
-                "$500,000",
-                "$1,000,000+",
+                "$5000",
+                "$10000",
+                "$20000",
+                "$50000",
+                "$100000+",
+                
               ].map((amount) => (
                 <button
                   key={amount}
