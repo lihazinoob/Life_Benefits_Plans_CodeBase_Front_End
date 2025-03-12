@@ -171,7 +171,7 @@ const Option = () => {
         <div className="mt-12">
           <a href="tel:8778410987">
             <button className="bg-[#4970FA] text-white  px-2 rounded-lg text-lg gap-2 shadow-md  transition">
-              <div className="flex flex-row items-center justify-center gap-4 p-2">
+              <div className="flex flex-row items-center justify-center gap-4 px-2 py-4">
                 <img
                   decoding="async"
                   alt="Ringing phone icon loading="
