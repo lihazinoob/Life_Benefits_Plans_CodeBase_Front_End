@@ -13,7 +13,9 @@ const StateCard = () => {
       state: {
         selectedState: stateName,
       },
-    });
+    }
+    );
+    window.scrollTo(0,0);
   };
   const handleSelectChange = (e) => {
     const selectedState = e.target.value;

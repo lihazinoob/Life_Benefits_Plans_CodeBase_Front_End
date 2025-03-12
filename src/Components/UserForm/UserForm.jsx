@@ -581,8 +581,13 @@ const MultiStepForm = () => {
   }, []);
 
   const handleChange = (field, value) => {
+    
     setFormData({ ...formData, [field]: value });
     setErrors({ ...errors, [field]: "" }); // Clear errors when user types
+   
+
+    
+
     if (field === "month" && value.length === 2 && value >= 1 && value <= 12) {
       dayRef.current.focus();
     } else if (
@@ -737,7 +742,7 @@ const MultiStepForm = () => {
                   pattern="[0-9]*"
                   onChange={(e) => {
                     const value = e.target.value.replace(/\D/g, "");
-                    if (value === "" || (value >= 1 && value <= 12)) {
+                    if (value === "" || (value >= 0 && value <= 12)) {
                       handleChange("month", value);
                     }
                   }}
@@ -765,7 +770,7 @@ const MultiStepForm = () => {
                   pattern="[0-9]*"
                   onChange={(e) => {
                     const value = e.target.value.replace(/\D/g, "");
-                    if (value === "" || (value >= 1 && value <= 31)) {
+                    if (value === "" || (value >= 0 && value <= 31)) {
                       handleChange("day", value);
                     }
                   }}
