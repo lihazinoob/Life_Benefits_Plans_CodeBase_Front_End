@@ -676,6 +676,7 @@ const MultiStepForm = () => {
   const handleSubmit = () => {
     if (validateStep()) {
       navigate("/congratulations");
+      window.scrollTo(0,0);
     }
   };
 
@@ -732,6 +733,8 @@ const MultiStepForm = () => {
                   ref={monthRef}
                   type="text"
                   value={formData.month}
+                  inputMode="numeric"
+                  pattern="[0-9]*"
                   onChange={(e) => {
                     const value = e.target.value.replace(/\D/g, "");
                     if (value === "" || (value >= 1 && value <= 12)) {
@@ -758,6 +761,8 @@ const MultiStepForm = () => {
                   ref={dayRef}
                   type="text"
                   value={formData.day}
+                  inputMode="numeric"
+                  pattern="[0-9]*"
                   onChange={(e) => {
                     const value = e.target.value.replace(/\D/g, "");
                     if (value === "" || (value >= 1 && value <= 31)) {
@@ -784,6 +789,8 @@ const MultiStepForm = () => {
                   ref={yearRef}
                   type="text"
                   value={formData.year}
+                  inputMode="numeric"
+                  pattern="[0-9]*"
                   onChange={(e) => {
                     const value = e.target.value.replace(/\D/g, "");
                     if (value.length <= 4) {
@@ -815,11 +822,11 @@ const MultiStepForm = () => {
             </h2>
             <div className="grid md:grid-cols-3 grid-cols-2  gap-4 mt-6">
               {[
-                "$5000",
-                "$10000",
-                "$20000",
-                "$50000",
-                "$100000+",
+                "$5,000",
+                "$10,000",
+                "$20,000",
+                "$50,000",
+                "$100,000+",
                 
               ].map((amount) => (
                 <button
