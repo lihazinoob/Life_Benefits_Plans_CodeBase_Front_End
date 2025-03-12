@@ -105,7 +105,9 @@ const Option = () => {
   return (
     <div className="mt-16 py-6 px-4 md:px-8 bg-[#F6F8F7] rounded-lg mx-2">
       <div className="flex flex-col justify-center items-center">
-        <h1 className="md:text-4xl font-bold text-md">Life Insurance Options 2025</h1>
+        <h1 className="md:text-4xl font-bold text-md">
+          Life Insurance Options 2025
+        </h1>
         <div className="mt-4 font-semibold md:text-xl">
           Quotes starting at <span className="text-[#4970FA] ">$15/month*</span>
         </div>
@@ -165,6 +167,37 @@ const Option = () => {
             <CircleCheck className="text-[#4970FA] w-5 h-5" />
             <p>It’s 100% free and 86 people are applying right now.</p>
           </div>
+        </div>
+        <div className="mt-12">
+          <a href="tel:8778410987">
+            <button className="bg-[#4970FA] text-white  px-2 rounded-lg text-lg gap-2 shadow-md  transition">
+              <div className="flex flex-row items-center justify-center gap-4 p-2">
+                <img
+                  decoding="async"
+                  alt="Ringing phone icon loading="
+                  src="https://a-us.storyblok.com/f/1016477/33x37/8591b07629/white-phone-icon-33.gif"
+                  width="33px"
+                  height="33px"
+                ></img>
+                (877) 841-0987
+              </div>
+            </button>
+          </a>
+        </div>
+        <div className="mt-1">
+        <p className="text-sm text-gray-600 mt-2 flex items-center justify-center gap-1">
+          <img
+            loading="lazy"
+            decoding="async"
+            className="pulse-icon svelte-rbq5f4 "
+            alt="Green pulsing icon"
+            src="https://a-us.storyblok.com/f/1016477/16x16/d82135e00f/pulsing-16.gif"
+            // width="16"
+            // height="16"
+            // style="margin-right: 4px; top: 2px"
+          />
+          Call for free live assistance
+        </p>
         </div>
       </div>
     </div>
