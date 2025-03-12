@@ -169,7 +169,7 @@ const Option = () => {
           </div>
         </div>
         <div className="mt-12">
-          <a href="tel:8778410987">
+          <a href="tel:8337150369">
             <button className="bg-[#4970FA] text-white  px-2 rounded-lg text-lg gap-2 shadow-md  transition">
               <div className="flex flex-row items-center justify-center gap-4 px-2 py-4">
                 <img
@@ -179,25 +179,25 @@ const Option = () => {
                   width="33px"
                   height="33px"
                 ></img>
-                (877) 841-0987
+                (833)-715-0369
               </div>
             </button>
           </a>
         </div>
         <div className="mt-1">
-        <p className="text-sm text-gray-600 mt-2 flex items-center justify-center gap-1">
-          <img
-            loading="lazy"
-            decoding="async"
-            className="pulse-icon svelte-rbq5f4 "
-            alt="Green pulsing icon"
-            src="https://a-us.storyblok.com/f/1016477/16x16/d82135e00f/pulsing-16.gif"
-            // width="16"
-            // height="16"
-            // style="margin-right: 4px; top: 2px"
-          />
-          Call for free live assistance
-        </p>
+          <p className="text-sm text-gray-600 mt-2 flex items-center justify-center gap-1">
+            <img
+              loading="lazy"
+              decoding="async"
+              className="pulse-icon svelte-rbq5f4 "
+              alt="Green pulsing icon"
+              src="https://a-us.storyblok.com/f/1016477/16x16/d82135e00f/pulsing-16.gif"
+              // width="16"
+              // height="16"
+              // style="margin-right: 4px; top: 2px"
+            />
+            Call for free live assistance
+          </p>
         </div>
       </div>
     </div>

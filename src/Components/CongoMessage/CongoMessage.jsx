@@ -9,7 +9,7 @@ const CongoMessage = () => {
       </div>
 
       <div className="text-center mt-6">
-        <a href="tel:8778410987">
+        <a href="tel:8337150369">
           <button className="bg-[#4970FA] text-white  px-2 rounded-lg text-lg gap-2 shadow-md  transition">
             <div className="flex flex-row items-center justify-center gap-4 p-2">
               <img
@@ -19,7 +19,7 @@ const CongoMessage = () => {
                 width="33px"
                 height="33px"
               ></img>
-              (877) 841-0987
+              (833)-715-0369
             </div>
           </button>
         </a>
