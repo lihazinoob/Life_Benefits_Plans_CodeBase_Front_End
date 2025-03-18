@@ -8,7 +8,7 @@ const Footer = () => {
         {/* Logo Section */}
         <div className="flex flex-row items-center justify-between gap-2 mb-4">
           <span className="sm:text-lg text-sm  font-bold text-[#4970FA] cursor-pointer">
-            LifeBenefitsPlus.com
+            UniverseCoverage.com
           </span>
           <img
             className="secondary_image svelte-xo7gnr "
@@ -22,7 +22,7 @@ const Footer = () => {
         <div className="my-6">
           {/* Description */}
           <p className="text-gray-600  mb-4">
-            Life Insurance Pros is not an insurance or operating company but
+            Universe Coverage is not an insurance or operating company but
             connects individuals with insurance providers. Products and services
             are provided exclusively by the providers. Descriptions are for
             informational purposes only and subject to change. Insurance plans
@@ -40,14 +40,14 @@ const Footer = () => {
 
           {/* Legal and Contact Info */}
           <p className="text-gray-600 mb-2">
-            Life Insurance Pros is not affiliated with or endorsed by the United
+            Universe Coverage is not affiliated with or endorsed by the United
             States government or the federal Medicare program. By using this
             site, you acknowledge that you have read and agree to the{" "}
-            <Link to="/terms-of-use" className="text-[#4970FA] underline">
+            <Link to="/terms-of-use" className="text-[#4970FA] underline" onClick={() => window.scrollTo(0, 0)}>
               Terms of Service
             </Link>{" "}
             and{" "}
-            <Link to="/privacy" className="text-[#4970FA] underline">
+            <Link to="/privacy" className="text-[#4970FA] underline" onClick={() => window.scrollTo(0, 0)}>
               Privacy Policy
             </Link>
             .
@@ -64,8 +64,9 @@ const Footer = () => {
           <hr className="my-1 w-full border-t border-black" />
           {/* Copyright and Contact */}
           <p className="text-gray-500 my-6">
-            Copyright &copy; 2025 lifebenefitsplus.com | All rights reserved. |{" "}
-            <Link to={"/contact"} className="text-[#4970FA] underline">
+            Copyright &copy; 2025 universecoverage.com | All rights reserved. |{" "}
+            <Link to={"/contact"} className="text-[#4970FA] underline"
+            onClick={() => window.scrollTo(0, 0)}>
               Contact Us
             </Link>
           </p>

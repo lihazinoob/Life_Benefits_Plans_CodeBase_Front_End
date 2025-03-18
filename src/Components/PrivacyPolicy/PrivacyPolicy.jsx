@@ -5,7 +5,7 @@ const PrivacyPolicy = () => {
     <div className="w-full px-2 md:px-4 lg:px-8">
       <div className="flex flex-col">
         <div className="font-bold text-2xl">
-          Life Insurance Pros Privacy Policy
+          Universe Coverage Privacy Policy
         </div>
         {/* Update Date and Time */}
         <div className="mt-6 mb-2 tracking-tighter">
@@ -19,11 +19,11 @@ const PrivacyPolicy = () => {
           <div className="mb-8">
             <div className="font-bold text-lg">Introduction</div>
             <div className="mt-4">
-              Life Insurance Pros Group LLC (“Life Insurance Pros,” “we,” “us,”
+              Universe Coverage Group LLC (“universe Coverage,” “we,” “us,”
               or “our”) respects the privacy of our users (“you” or “your”).
               This Privacy Policy explains how we collect, use, disclose, and
               safeguard your information when you visit our website
-              Lifeinsurancepros.com. Please read this privacy policy carefully.
+              UniverseCoverage.com. Please read this privacy policy carefully.
               If you do not agree with the terms of this privacy policy, please
               do not access the site.
             </div>
@@ -168,7 +168,7 @@ const PrivacyPolicy = () => {
             <div className="font-bold text-lg">Contact Us</div>
             <div className="mt-4">
               If you have questions or comments about this Privacy Policy,
-              please contact us at: Life Insurance Pros Group LLC
+              please contact us at: Universe Coverage Group LLC
             </div>
           </div>
         </div>
