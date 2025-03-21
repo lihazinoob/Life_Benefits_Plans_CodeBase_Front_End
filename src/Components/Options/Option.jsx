@@ -153,7 +153,7 @@ const Option = () => {
         <div className="mt-8 text-center text-sm">
           <div className="flex flex-row justify-center items-start sm:gap-2">
             <CircleCheck className="text-[#4970FA] w-5 h-5 ml-3" />
-            <p>It’s 100% free and 86 people are applying right now.</p>
+            <p>It’s 100% free and <span className=" text-[#4970FA] font-bold ">86</span> people are applying right now.</p>
           </div>
         </div>
         <div className="mt-12">
