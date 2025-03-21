@@ -43,42 +43,30 @@ const Option = () => {
     }
   };
 
-  // Function to fetch ZIP code using Geolocation API
-  const fetchLocationZIP = async (latitude, longitude) => {
-    try {
-      const response = await fetch(
-        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
-      );
-      const data = await response.json();
-      if (data.address && data.address.postcode) {
-        const detectedZip = data.address.postcode;
-        setZip(detectedZip);
-        validateZip(detectedZip); // Validate the detected ZIP code
-      } else {
-        setErrorMessage("Could not fetch ZIP from location.");
-      }
-    } catch (error) {
-      setErrorMessage("Failed to fetch location ZIP.");
-    }
-  };
-
-  // Fetch location on component mount
+  /// Fetch location data using IP address on component mount
   useEffect(() => {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const { latitude, longitude } = position.coords;
-          fetchLocationZIP(latitude, longitude);
-        },
-        (error) => {
-          console.error("Geolocation error:", error);
-          setErrorMessage("Please enter your ZIP manually.");
+    const fetchIPLocation = async () => {
+      try {
+        const response = await fetch("https://ipapi.co/json/");
+        const data = await response.json();
+
+        if (data.postal) {
+          const detectedZip = data.postal;
+          setZip(detectedZip);
+          validateZip(detectedZip); // Validate and fetch additional details
+        } else {
+          setErrorMessage("");
         }
-      );
-    } else {
-      setErrorMessage("Geolocation is not supported by your browser.");
-    }
+      } catch (error) {
+        console.error("IP Geolocation error:", error);
+        setErrorMessage(
+          ""
+        );
+      }
+    };
+    fetchIPLocation();
   }, []);
+
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -163,8 +151,8 @@ const Option = () => {
         </div>
 
         <div className="mt-8 text-center text-sm">
-          <div className="flex flex-row justify-center items-center gap-1">
-            <CircleCheck className="text-[#4970FA] w-5 h-5" />
+          <div className="flex flex-row justify-center items-start sm:gap-2">
+            <CircleCheck className="text-[#4970FA] w-5 h-5 ml-3" />
             <p>It’s 100% free and 86 people are applying right now.</p>
           </div>
         </div>

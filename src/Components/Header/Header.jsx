@@ -1,12 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../../assets/logo.jpg"
 const Header = () => {
   return (
-    <div className="w-full px-2 md:px-4 lg:px-8">
-      <header className="flex justify-between items-center py-3 md:py-2 max-w-7xl mx-auto gap-0.5">
+    <div className="w-full px-2 md:px-4 lg:px-8 mt-2">
+      <header className="flex justify-between items-center py-3 md:py-2 max-w-7xl mx-auto gap-10 sm:gap-0.5">
         {/* Left Section: Logo */}
         <div className="lg:text-2xl sm:text-xl text-[18px] px-4  font-bold text-[#4970FA] flex items-center gap-1 md:gap-2">
-          <Link to="/">Universe Coverage</Link>
+          <Link to="/">
+            <img src={logo} alt="Comapny Logo" className="w-20 h-20  md:w-60 md:h-30 object-cover" />
+          </Link>
         </div>
 
         {/* Right Section: Contact Info */}
