@@ -180,9 +180,6 @@ const Option = () => {
               className="pulse-icon svelte-rbq5f4 "
               alt="Green pulsing icon"
               src="https://a-us.storyblok.com/f/1016477/16x16/d82135e00f/pulsing-16.gif"
-              // width="16"
-              // height="16"
-              // style="margin-right: 4px; top: 2px"
             />
             Call for free live assistance
           </p>
