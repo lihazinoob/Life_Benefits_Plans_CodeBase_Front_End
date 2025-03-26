@@ -12,7 +12,7 @@ const LandingPage = () => {
       <div className="lg:px-24   py-1">
         <Header />
       </div>
-      <div className="lg:px-24 2xl:px-96 py-1">
+      <div className="lg:px-24 2xl:px-96">
         <Option />
       </div>
       <div className="lg:px-24 2xl:px-96 py-1">

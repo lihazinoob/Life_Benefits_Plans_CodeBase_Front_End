@@ -16,7 +16,6 @@ const MultiStepForm = () => {
     gender: "",
     zipCode:
       location.state?.selectedZIP || localStorage.getItem("selectedZIP") || "",
-    address: "",
     city:
       location.state?.selectedCity ||
       localStorage.getItem("selectedCity") ||
@@ -25,7 +24,8 @@ const MultiStepForm = () => {
       location.state?.selectedState ||
       localStorage.getItem("selectedState") ||
       "",
-    name: "",
+    firstname: "",
+    lastname: "",
     phone: "",
   });
   const [errors, setErrors] = useState({});
@@ -136,8 +136,11 @@ const MultiStepForm = () => {
         newErrors.year = "Year must be between 1900 and 2025";
       }
     } else if (step == 2) {
-      if (!formData.name) {
-        newErrors.name = "Name is Required";
+      if (!formData.firstname) {
+        newErrors.firstname = "First Name is Required";
+      }
+      if (!formData.lastname) {
+        newErrors.lastname = "Last Name is Required";
       }
       if (!formData.phone) {
         newErrors.phone = "Phone Number is Required";
@@ -152,7 +155,7 @@ const MultiStepForm = () => {
     } else if (step === 4) {
       if (!formData.gender) newErrors.gender = "Required";
     } else if (step === 5) {
-      if (!formData.address) newErrors.address = "Address is required.";
+      
       if (!formData.city) newErrors.city = "City is required.";
       if (!formData.state) newErrors.state = "State is required.";
       if (!formData.zipCode) newErrors.zipCode = "ZIP Code is required.";
@@ -178,7 +181,8 @@ const MultiStepForm = () => {
     } else if (step == 2) {
       const rawPhone = formData.phone.replace(/\D/g, ""); // Strip non-digits
       return (
-        formData.name.trim() !== "" &&
+        formData.firstname.trim() !== "" &&
+        formData.lastname.trim() !== "" && 
         formData.phone.trim() !== "" &&
         rawPhone.length === 10 // Check for 10 digits
       );
@@ -188,7 +192,6 @@ const MultiStepForm = () => {
       return formData.gender.trim() !== "";
     } else if (step === 5) {
       return (
-        formData.address.trim() !== "" &&
         formData.city.trim() !== "" &&
         formData.state.trim() !== "" &&
         formData.zipCode.trim().length === 5
@@ -232,7 +235,7 @@ const MultiStepForm = () => {
   }, [formData, step, navigationDirection]);
 
   return (
-    <div className="flex flex-col items-center mt-24 bg-white px-4">
+    <div className="flex flex-col items-center mt-8 mb-10 bg-white px-8">
       {/* Progress Bar */}
       <div className="w-full max-w-lg">
         <div className="text-sm font-semibold text-gray-700 mb-1">
@@ -352,20 +355,45 @@ const MultiStepForm = () => {
               We’ll use this to contact you about your quote.
             </p>
             <div className="flex flex-col gap-4 mt-6">
-              <input
-                type="text"
-                value={formData.name}
-                onChange={(e) => handleChange("name", e.target.value)}
-                placeholder="Full Name"
-                className={`border ${
-                  errors.name ? "border-red-500" : "border-gray-300"
-                } rounded-md text-center text-xl p-2 w-full focus:outline-none focus:ring-2 ${
-                  errors.name ? "focus:ring-red-500" : "focus:ring-[#4970FA]"
-                }`}
-              />
-              {errors.name && (
-                <p className="text-red-500 text-sm -mt-1">{errors.name}</p>
-              )}
+              <div className="flex flex-row gap-2">
+                <div>
+                  <input
+                    type="text"
+                    value={formData.firstname}
+                    onChange={(e) => handleChange("firstname", e.target.value)}
+                    placeholder="First Name"
+                    className={`border ${
+                      errors.firstname ? "border-red-500" : "border-gray-300"
+                    } rounded-md text-center text-xl p-2 w-full focus:outline-none focus:ring-2 ${
+                      errors.firstname
+                        ? "focus:ring-red-500"
+                        : "focus:ring-[#4970FA]"
+                    }`}
+                  />
+                  {errors.firstname && (
+                    <p className="text-red-500 text-sm mt-1">{errors.firstname}</p>
+                  )}
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    value={formData.lastname}
+                    onChange={(e) => handleChange("lastname", e.target.value)}
+                    placeholder="Last Name"
+                    className={`border ${
+                      errors.lastname ? "border-red-500" : "border-gray-300"
+                    } rounded-md text-center text-xl p-2 w-full focus:outline-none focus:ring-2 ${
+                      errors.lastname
+                        ? "focus:ring-red-500"
+                        : "focus:ring-[#4970FA]"
+                    }`}
+                  />
+                  {errors.lastname && (
+                    <p className="text-red-500 text-sm mt-1">{errors.lastname}</p>
+                  )}
+                </div>
+              </div>
+
               <input
                 type="tel"
                 value={formData.phone}
@@ -471,21 +499,7 @@ const MultiStepForm = () => {
               We verify your location to provide local quotes in your area.
             </p>
             <div className="flex flex-col gap-4 mt-6">
-              <input
-                type="text"
-                value={formData.address}
-                onChange={(e) => handleChange("address", e.target.value)}
-                placeholder="Address"
-                className={`border ${
-                  errors.address ? "border-red-500" : "border-gray-300"
-                } rounded-md text-center text-xl p-2 w-full focus:outline-none focus:ring-2 ${
-                  errors.address ? "focus:ring-red-500" : "focus:ring-[#4970FA]"
-                }`}
-              />
-              {errors.address && (
-                <p className="text-red-500 text-sm -mt-1">{errors.address}</p>
-              )}
-
+              
               <input
                 type="text"
                 value={formData.city}

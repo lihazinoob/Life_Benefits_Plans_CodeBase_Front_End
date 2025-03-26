@@ -91,7 +91,7 @@ const Option = () => {
   };
 
   return (
-    <div className="mt-16 py-6 px-4 md:px-8 bg-[#F6F8F7] rounded-lg mx-2">
+    <div className="mt-2 py-6 px-4 md:px-8 bg-[#F6F8F7] rounded-lg mx-2">
       <div className="flex flex-col justify-center items-center">
         <h1 className="md:text-4xl font-bold text-md">
           Life Insurance Options 2025
