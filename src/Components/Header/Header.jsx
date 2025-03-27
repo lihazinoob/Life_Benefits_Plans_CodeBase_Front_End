@@ -8,7 +8,7 @@ const Header = () => {
         {/* Left Section: Logo */}
         <div className="lg:text-2xl sm:text-xl text-[18px] px-4  font-bold text-[#4970FA] flex items-center gap-1 md:gap-2">
           <Link to="/">
-            <img src={logo} alt="Comapny Logo" className="w-20 h-20  md:w-60 md:h-30 object-cover" />
+            <img src={logo} alt="Comapny Logo" className="w-20 h-[120px]  md:w-60 md:h-30 object-cover" />
           </Link>
         </div>
 
