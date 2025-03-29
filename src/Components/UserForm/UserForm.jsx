@@ -215,7 +215,7 @@ const MultiStepForm = () => {
           headers: { "Content-Type": "application/json" },
           mode: "no-cors"
         });
-        alert("Data submitted successfully!");
+        // alert("Data submitted successfully!");
         navigate("/congratulations");
         window.scrollTo(0, 0);
       } catch (error) {
