@@ -155,7 +155,6 @@ const MultiStepForm = () => {
     } else if (step === 4) {
       if (!formData.gender) newErrors.gender = "Required";
     } else if (step === 5) {
-      
       if (!formData.city) newErrors.city = "City is required.";
       if (!formData.state) newErrors.state = "State is required.";
       if (!formData.zipCode) newErrors.zipCode = "ZIP Code is required.";
@@ -182,7 +181,7 @@ const MultiStepForm = () => {
       const rawPhone = formData.phone.replace(/\D/g, ""); // Strip non-digits
       return (
         formData.firstname.trim() !== "" &&
-        formData.lastname.trim() !== "" && 
+        formData.lastname.trim() !== "" &&
         formData.phone.trim() !== "" &&
         rawPhone.length === 10 // Check for 10 digits
       );
@@ -204,10 +203,24 @@ const MultiStepForm = () => {
     setStep((prev) => prev - 1);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     if (validateStep()) {
-      navigate("/congratulations");
-      window.scrollTo(0, 0);
+      try {
+        console.log(formData);
+        const response  = await fetch("https://script.google.com/macros/s/AKfycbyTto7ZXLpLNHOMgjuA5oQPyzqvVBjNqxPE_ii_OeoQeaJ2SVzGr-gQ8KLuEZDwSFeq/exec",
+        {
+          method:"POST",
+          body:JSON.stringify(formData),
+          headers: { "Content-Type": "application/json" },
+          mode: "no-cors"
+        });
+        alert("Data submitted successfully!");
+        navigate("/congratulations");
+        window.scrollTo(0, 0);
+      } catch (error) {
+        console.error("Error:", error);
+      }
     }
   };
 
@@ -371,7 +384,9 @@ const MultiStepForm = () => {
                     }`}
                   />
                   {errors.firstname && (
-                    <p className="text-red-500 text-sm mt-1">{errors.firstname}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.firstname}
+                    </p>
                   )}
                 </div>
                 <div>
@@ -389,7 +404,9 @@ const MultiStepForm = () => {
                     }`}
                   />
                   {errors.lastname && (
-                    <p className="text-red-500 text-sm mt-1">{errors.lastname}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.lastname}
+                    </p>
                   )}
                 </div>
               </div>
@@ -499,7 +516,6 @@ const MultiStepForm = () => {
               We verify your location to provide local quotes in your area.
             </p>
             <div className="flex flex-col gap-4 mt-6">
-              
               <input
                 type="text"
                 value={formData.city}
