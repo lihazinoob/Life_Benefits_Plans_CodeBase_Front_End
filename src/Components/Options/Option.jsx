@@ -157,7 +157,7 @@ const Option = () => {
           </div>
         </div>
         <div className="mt-12">
-          <a href="tel:8337150369">
+          <a href="tel:8336303733">
             <button className="bg-[#4970FA] text-white  px-2 rounded-lg text-lg gap-2 shadow-md  transition">
               <div className="flex flex-row items-center justify-center gap-4 px-2 py-4">
                 <img
@@ -167,7 +167,7 @@ const Option = () => {
                   width="33px"
                   height="33px"
                 ></img>
-                (833)-715-0369
+                (833)-630-3733
               </div>
             </button>
           </a>

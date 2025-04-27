@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-
+import { TailSpin } from "react-loader-spinner";
 const MultiStepForm = () => {
+  // State to track if the loader is showing or not
+  const [loader, setLoader] = useState(false);
+
   const monthRef = useRef(null);
   const dayRef = useRef(null);
   const yearRef = useRef(null);
@@ -152,16 +155,17 @@ const MultiStepForm = () => {
       }
     } else if (step === 3) {
       if (!formData.coverage) newErrors.coverage = "Required";
-    } else if (step === 4) {
-      if (!formData.gender) newErrors.gender = "Required";
-    } else if (step === 5) {
-      if (!formData.city) newErrors.city = "City is required.";
-      if (!formData.state) newErrors.state = "State is required.";
-      if (!formData.zipCode) newErrors.zipCode = "ZIP Code is required.";
-      if (formData.zipCode && formData.zipCode.length !== 5) {
-        newErrors.zipCode = "ZIP Code must be 5 digits.";
-      }
     }
+    // else if (step === 4) {
+    //   if (!formData.gender) newErrors.gender = "Required";
+    // } else if (step === 5) {
+    //   if (!formData.city) newErrors.city = "City is required.";
+    //   if (!formData.state) newErrors.state = "State is required.";
+    //   if (!formData.zipCode) newErrors.zipCode = "ZIP Code is required.";
+    //   if (formData.zipCode && formData.zipCode.length !== 5) {
+    //     newErrors.zipCode = "ZIP Code must be 5 digits.";
+    //   }
+    // }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -187,15 +191,16 @@ const MultiStepForm = () => {
       );
     } else if (step === 3) {
       return formData.coverage.trim() !== "";
-    } else if (step === 4) {
-      return formData.gender.trim() !== "";
-    } else if (step === 5) {
-      return (
-        formData.city.trim() !== "" &&
-        formData.state.trim() !== "" &&
-        formData.zipCode.trim().length === 5
-      );
     }
+    //  else if (step === 4) {
+    //   return formData.gender.trim() !== "";
+    // } else if (step === 5) {
+    //   return (
+    //     formData.city.trim() !== "" &&
+    //     formData.state.trim() !== "" &&
+    //     formData.zipCode.trim().length === 5
+    //   );
+    // }
     return false;
   };
 
@@ -207,14 +212,18 @@ const MultiStepForm = () => {
     e.preventDefault();
     if (validateStep()) {
       try {
-        console.log(formData);
-        const response  = await fetch("https://script.google.com/macros/s/AKfycbyTto7ZXLpLNHOMgjuA5oQPyzqvVBjNqxPE_ii_OeoQeaJ2SVzGr-gQ8KLuEZDwSFeq/exec",
-        {
-          method:"POST",
-          body:JSON.stringify(formData),
-          headers: { "Content-Type": "application/json" },
-          mode: "no-cors"
-        });
+        // console.log(formData);
+        setLoader(true);
+        const response = await fetch(
+          "https://script.google.com/macros/s/AKfycbzAuxPncdB_HBc6_wWPwDUa1wlls5pAF9ufEiwS_AyMnVIRSZxXER5DL0o12vjz4S_c/exec",
+          {
+            method: "POST",
+            body: JSON.stringify(formData),
+            headers: { "Content-Type": "application/json" },
+            mode: "no-cors",
+          }
+        );
+        setLoader(false);
         // alert("Data submitted successfully!");
         navigate("/congratulations");
         window.scrollTo(0, 0);
@@ -236,7 +245,7 @@ const MultiStepForm = () => {
     }
 
     // Auto-advance only if navigating forward and the current step is valid
-    if (navigationDirection === "forward" && step < 5 && isCurrentStepValid()) {
+    if (navigationDirection === "forward" && step < 3 && isCurrentStepValid()) {
       const timer = setTimeout(() => {
         setStep((prev) => prev + 1);
       }, 800); // Delay for forward navigation
@@ -252,7 +261,7 @@ const MultiStepForm = () => {
       {/* Progress Bar */}
       <div className="w-full max-w-lg">
         <div className="text-sm font-semibold text-gray-700 mb-1">
-          {Math.floor(((step - 1) / 5) * 100)}% complete
+          {Math.floor(((step - 1) / 3) * 100)}% complete
         </div>
         <div className="w-full h-2 bg-gray-200 rounded-full">
           <div
@@ -474,7 +483,7 @@ const MultiStepForm = () => {
           </div>
         )}
 
-        {step === 4 && (
+        {/* {step === 4 && (
           <>
             <h2 className="text-2xl font-bold text-gray-900">
               What is your gender?
@@ -505,9 +514,9 @@ const MultiStepForm = () => {
               <p className="text-red-500 text-sm mt-2">{errors.gender}</p>
             )}
           </>
-        )}
+        )} */}
 
-        {step === 5 && (
+        {/* {step === 5 && (
           <>
             <h2 className="text-3xl font-bold text-gray-900">
               What's your home address?
@@ -577,7 +586,7 @@ const MultiStepForm = () => {
               </div>
             </div>
           </>
-        )}
+        )} */}
 
         {/* Navigation Buttons: Only "Back" for steps 2-4 and "Submit" for step 4 */}
         <div className="flex justify-between mt-6">
@@ -589,14 +598,23 @@ const MultiStepForm = () => {
               Back
             </button>
           )}
-          {step === 5 && (
-            <button
-              onClick={handleSubmit}
-              className="px-6 py-3 text-lg font-semibold bg-[#4970FA] text-white rounded-md hover:bg-blue-600"
-            >
-              Submit
-            </button>
-          )}
+          {step === 3 &&
+            (loader ? (
+            <TailSpin
+              height={60}
+              width={60}
+              radius={9}
+              color="#4970FA"
+
+            />
+            ) : (
+              <button
+                onClick={handleSubmit}
+                className="px-6 py-3 text-lg font-semibold bg-[#4970FA] text-white rounded-md hover:bg-blue-600"
+              >
+                Submit
+              </button>
+            ))}
         </div>
       </div>
     </div>

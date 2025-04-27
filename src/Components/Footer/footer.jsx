@@ -29,10 +29,10 @@ const Footer = () => {
             may not be available in all states. For a complete description,
             please call{" "}
             <a
-              href="tel: 8337150369"
+              href="tel: 8336303733"
               className="text-[#4970FA] underline cursor-pointer"
             >
-               (833)-715-0369
+               (833)-630-3733
             </a>
             (TTY Users: 711) to determine eligibility and to request a copy of
             the applicable policy.

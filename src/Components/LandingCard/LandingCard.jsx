@@ -33,7 +33,7 @@ const LandingCard = () => {
             </span>{" "}
             WAY TO GET QUOTES
           </p>
-          <a href="tel:8337150369">
+          <a href="tel:8336303733">
             <button className="bg-[#4970FA] text-white  px-2 rounded-lg text-lg gap-2 shadow-md  transition">
               <div className="flex flex-row items-center justify-center gap-4 p-2">
                 <img
@@ -43,7 +43,7 @@ const LandingCard = () => {
                   width="33px"
                   height="33px"
                 ></img>
-                (833)-715-0369
+                (833)-630-3733
               </div>
             </button>
           </a>

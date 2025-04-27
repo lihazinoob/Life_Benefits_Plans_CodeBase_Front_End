@@ -36,7 +36,7 @@ const Header = () => {
             </div>
             <div className="flex flex-col">
               <span className=" text-sm lg:text-base font-bold text-black">
-                <a href="tel:8337150369">833-715-0369</a>
+                <a href="tel:8336303733">833-630-3733</a>
               </span>
               <span className="text-xs md:text-[10px] text-gray-500">
                 Sun - Sat 8 AM - 8 PM EST
